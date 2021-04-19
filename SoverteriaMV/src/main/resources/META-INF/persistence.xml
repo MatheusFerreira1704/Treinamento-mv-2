@@ -7,6 +7,7 @@
 	<persistence-unit name="SorveteriaMV">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
+	<class>Entidade.Sorvete</class>
 		
 		<!-- ORACLE XE -->
 		<properties>

@@ -16,7 +16,7 @@ public class Sorvete {
 	@Column(name="FABRICANTE", nullable = false)
 	private String fabricante;
 
-	@Column(name="INGREDIENTE", nullable = false)
+	@Column(name="INGREDIENTES", nullable = false)
 	private String ingrediente;
 
 	@Column(name="STATUS", nullable = false)
