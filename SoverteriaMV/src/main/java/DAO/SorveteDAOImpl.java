@@ -67,7 +67,7 @@ public class SorveteDAOImpl implements SorveteDAO {
 			Sorvete sorveteAlterar = ent.find(Sorvete.class, nome);
 			tx = ent.getTransaction();
 			tx.begin();
-			ent.remove(sorveteAlterar);
+			ent.merge(sorveteAlterar);
 			tx.commit();
 
 		} catch (Exception e) {
@@ -87,6 +87,13 @@ public class SorveteDAOImpl implements SorveteDAO {
 		// TODO Auto-generated method stub
 		this.ent = JpaUtil.getEntityManager();
 		Sorvete sorvetePesquisar = ent.find(Sorvete.class, nome);
+
+		/* Solução criada só pra monstrar no console */
+
+		System.out.println(sorvetePesquisar.getNome());
+		System.out.println(sorvetePesquisar.getFabricante());
+		System.out.println(sorvetePesquisar.getIngrediente());
+		System.out.println(sorvetePesquisar.getStatus());
 		return sorvetePesquisar;
 	}
 
@@ -96,10 +103,9 @@ public class SorveteDAOImpl implements SorveteDAO {
 		List<Sorvete> sorvetes = new ArrayList<Sorvete>();
 		this.ent = JpaUtil.getEntityManager();
 
-		Query query = ent.createQuery("from Sorvete u");
+		Query query = ent.createQuery("from * SORVETE");
 
 		sorvetes = query.getResultList();
-
 		return sorvetes;
 	}
 
